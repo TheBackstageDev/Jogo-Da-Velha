@@ -1,0 +1,59 @@
+* {
+  padding: 0;
+  margin: 0;  
+}
+
+body{
+  background-color: rgb(58, 58, 58);
+}
+
+h1{
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+/* Button */
+
+#but{
+  display: flex;
+  justify-content: center;
+}
+
+#but button{
+  padding: 10px 40px;
+  margin-top: 50px;
+  background-color: rgb(58, 58, 58);
+  color: rgb(255, 255, 255);
+}
+
+#but button:hover{
+  cursor: pointer;
+}
+
+/* The Board Style */
+
+#Tabuleiro{
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+#Tabuleiro div{
+  border-style: solid;
+  background-color: wheat;
+  width: 5px;
+  height: 0;
+  padding: 50px;
+  margin: 5px;
+  margin-top: 8px;
+}
+
+#Tabuleiro div:hover{
+  cursor: pointer;
+}
+
+img {
+  width: 80px;
+  transform: translate(-47%, -50%);
+}
