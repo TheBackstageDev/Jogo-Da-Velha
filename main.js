@@ -6,7 +6,7 @@ var board = [
     '','','',
     '','','',
     '','',''
-]
+];
 
 const winningPatterns = [
     [1, 2, 3], // columns
@@ -29,7 +29,6 @@ for (let i = 1; i <= 9; i++) {
 
 //Every time an cell is clicked
 function onClick(img_id,cell_id) {
-
     if (!disabled_cells.includes(cell_id.id)){
         switch(turnOf){
             case "X":
@@ -44,10 +43,21 @@ function onClick(img_id,cell_id) {
     }
 
     if (!disabled_cells.includes(cell_id.id)) {
-        disabled_cells.push(cell_id.id)
+        disabled_cells.push(cell_id.id);
         var num = cell_id.id.charAt(cell_id.id.length - 1);
-        board[num - 1] = turnOf 
+        board[num - 1] = turnOf;
         hasWon(turnOf,board);
+    }
+
+    //Checks for Ties.
+    let sum = '';
+    for (let house of board) {
+        if (house) {
+            sum += house;
+        }
+    }
+    if (sum.length === 9 && !hasWon(turnOf, sum)) {
+        document.getElementById("winh1").innerText = "Its A Tie!";
     }
 }
 
@@ -71,5 +81,7 @@ function resetGame() {
     }
     document.getElementById("winh1").innerText = "";
     board = [ '','','','','','','','','']
-    disabled_cells = []
+    disabled_cells = [];
 }
+
+//The Bot Programming.
