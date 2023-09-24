@@ -2,12 +2,7 @@
 var turnOf = "X";
 var cells = [];
 var disabled_cells = [];
-var board = [
-    '','','',
-    '','','',
-    '','',''
-];
-
+var board = Array(9).fill('')
 const winningPatterns = [
     [1, 2, 3], // columns
     [4, 5, 6],
@@ -28,41 +23,36 @@ for (let i = 1; i <= 9; i++) {
 }
 
 //Every time an cell is clicked
-function onClick(img_id,cell_id) {
+let onClick = (img_id,cell_id) => {
     if (!disabled_cells.includes(cell_id.id)){
-        switch(turnOf){
-            case "X":
-                img_id.src = "images/Xplr.png";
-                turnOf = "O";
-                break;
-            case "O":
-                img_id.src = "images/Oplr.png";
-                turnOf = "X";
-                break;
-        }
+        makeMove(turnOf,img_id);
+        turnOf = turnOf === 'X' ? 'O' : 'X';
     }
 
     if (!disabled_cells.includes(cell_id.id)) {
         disabled_cells.push(cell_id.id);
-        var num = cell_id.id.charAt(cell_id.id.length - 1);
+        let num = cell_id.id.charAt(cell_id.id.length - 1);
         board[num - 1] = turnOf;
         hasWon(turnOf,board);
     }
 
     //Checks for Ties.
-    let sum = '';
+    let num = '';
     for (let house of board) {
-        if (house) {
-            sum += house;
-        }
+        num += house;
     }
-    if (sum.length === 9 && !hasWon(turnOf, sum)) {
+    if (num.length === 9 && !makeMove(turnOf, board)) {
         document.getElementById("winh1").innerText = "Its A Tie!";
     }
 }
 
+//Makes a move on the board.
+let makeMove = (player, img) => {
+    img.src = "images/" + player + "plr.png";
+}
+
 //Checks if someone has won.
-function hasWon(player, board_state) {
+let hasWon = (player, board_state) => {
     for (let pattern of winningPatterns) {
         const [a,b,c] = pattern.map(index => index - 1);
         if (board_state[a] === player && board_state[b] === player && board_state[c] === player) {
@@ -75,13 +65,14 @@ function hasWon(player, board_state) {
 }
 
 //Resets the game when the Button is pressed.
-function resetGame() {
+let resetGame = () => {
     for (let i = 0; i < cells.length; i++) {
         cells[i].firstElementChild.src = "";
     }
     document.getElementById("winh1").innerText = "";
-    board = [ '','','','','','','','','']
+    board = Array(9).fill('')
     disabled_cells = [];
 }
 
-//The Bot Programming.
+
+
