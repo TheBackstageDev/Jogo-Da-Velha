@@ -1,38 +1,40 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Jogo Da Velha</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
+<html lang="en">
 
-        <h1>Jogo Da Velha</h1>
-        <div id="but">
-            <button id="reset" onclick="resetGame()">Reset</button>
-        </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo Da Velha</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-        <div id="Tabuleiro">
-            <table>
-                    <td>
-                        <div id="box-1"></div>
-                        <div id="box-2"></div>
-                        <div id="box-3"></div>
-                    </td>
-                    <td>
-                        <div id="box-4"></div>
-                        <div id="box-5"></div>
-                        <div id="box-6"></div>
-                    </td>
-                    <td>
-                        <div id="box-7"></div>
-                        <div id="box-8"></div>
-                        <div id="box-9"></div>
-                    </td>
-            </table>
-        </div>
-        <h1 id="winh1"></h1>
-        <script src="main.js"></script>
-    </body>
+<body>
+
+    <h1>Jogo Da Velha</h1>
+    <div id="but">
+        <button id="reset" onclick="resetGame()">Reset</button>
+    </div>
+
+    <div id="Tabuleiro">
+        <div id="box-1"></div>
+        <div id="box-2"></div>
+        <div id="box-3"></div>
+        <div id="box-4"></div>
+        <div id="box-5"></div>
+        <div id="box-6"></div>
+        <div id="box-7"></div>
+        <div id="box-8"></div>
+        <div id="box-9"></div>
+    </div>
+    <h1 id="winh1"></h1>
+    <div id="checkboxContainer">
+        <input type="checkbox" id="isMinMax" value="minMax" name="minMaxCheck"> 
+        <label for="minMaxCheck">Activate Opponent</label> 
+    </div>
+
+    <div id="graph"></div>
+
+    <script src="main.js"></script>
+</body>
+
 </html>
